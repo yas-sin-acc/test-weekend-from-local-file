@@ -1,0 +1,95 @@
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; color: #1c2b22; }
+.pg { min-height: 100vh; background: #f2f6f3; transition: background .3s; }
+.pg-students { background: #e6f3ea; } .pg-daily { background: #e5eefb; } .pg-exams { background: #fbf2de; }
+.pg-disc { background: #fbe7e7; } .pg-fin { background: #ece6f8; } .pg-set { background: #ececec; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; background: #0f6b45; color: #fff; padding: 10px 14px; }
+.nav { display: flex; gap: 4px; overflow-x: auto; background: #0b5636; padding: 6px; }
+.nav button { background: transparent; color: #cfe9db; border: 0; padding: 8px 12px; border-radius: 6px; white-space: nowrap; cursor: pointer; }
+.nav button.on { background: #fff; color: #0f6b45; font-weight: 600; }
+.alert { background: #b3261e; color: #fff; padding: 8px 14px; cursor: pointer; font-weight: 600; }
+main { max-width: 1100px; margin: 0 auto; padding: 10px; }
+.card { background: #fff; border-radius: 10px; padding: 12px; margin: 10px 0; box-shadow: 0 1px 3px #0002; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.full { grid-column: 1 / -1; }
+.row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin: 6px 0; }
+.row input, .row select { flex: 1; min-width: 110px; }
+.f { display: flex; flex-direction: column; gap: 3px; font-size: 13px; }
+input, select, textarea { padding: 8px; border: 1px solid #bcd0c4; border-radius: 6px; font-size: 14px; max-width: 100%; }
+input.sm { width: 80px; flex: 0 0 80px; min-width: 0; }
+.search { width: 100%; margin: 6px 0; }
+.btn { background: #0f6b45; color: #fff; border: 0; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 14px; }
+.btn.gray { background: #7b8a82; } .btn.red { background: #b3261e; } .btn.gold { background: #b8860b; } .btn.sm { padding: 4px 8px; font-size: 12px; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { border-bottom: 1px solid #e0e8e3; padding: 6px; text-align: left; white-space: nowrap; }
+th { background: #eaf3ee; }
+.th { width: 34px; height: 44px; object-fit: cover; border-radius: 4px; }
+.st.Present { background: #d7f2de; } .st.Late { background: #ffe9b8; } .st.Absent { background: #ffd0cc; } .st.Excused { background: #dbe6ff; }
+.scanmsg { font-size: 18px; font-weight: 700; margin: 6px 0; }
+.alertline { padding: 6px 8px; border-radius: 6px; margin: 4px 0; }
+.alertline.hot { background: #ffd0cc; } .alertline.warn { background: #ffe9b8; }
+.login { max-width: 320px; margin: 60px auto; display: flex; flex-direction: column; gap: 10px; }
+.err { color: #b3261e; margin: 0; }
+.overlay { position: fixed; inset: 0; background: #000a; display: flex; overflow: auto; padding: 10px; z-index: 9; }
+.overlay > * { margin: auto; }
+.bar { text-align: center; margin-top: 8px; }
+.wrapc { max-width: 100%; }
+/* ID card */
+.idwrap { display: flex; flex-wrap: wrap; gap: 6mm; justify-content: center; background: #fff; padding: 8px; }
+.idc { width: 85.6mm; height: 54mm; border: 1px solid #0f6b45; border-radius: 3mm; overflow: hidden; background: #fff; display: flex; flex-direction: column; font-size: 9pt; }
+.idh { background: #0f6b45; color: #fff; text-align: center; padding: 1.5mm; font-weight: 700; }
+.idb { display: flex; gap: 3mm; padding: 2.5mm; flex: 1; }
+.idp { width: 24mm; height: 30mm; background: #e5ece8; display: flex; align-items: center; justify-content: center; font-size: 8pt; color: #777; flex-shrink: 0; overflow: hidden; border: 1px solid #aaa; }
+.idp.big { width: 70px; height: 90px; }
+.idp img { width: 100%; height: 100%; object-fit: cover; }
+.idi { line-height: 1.35; } .idf { background: #eaf3ee; text-align: center; font-size: 7pt; padding: 1mm; }
+/* receipt */
+.rcpt { background: #fff; width: min(380px, 96vw); padding: 16px; border: 2px dashed #555; font-family: monospace; text-align: center; }
+.rcpt p { margin: 4px 0; text-align: left; } .rcpt h2, .rcpt h3 { margin: 4px 0; }
+/* certificates (sizes use cqw so they scale on screen and print) */
+.certbox.L { width: min(760px, 96vw); } .certbox.P { width: min(500px, 96vw); }
+.cert { position: relative; container-type: inline-size; overflow: hidden; text-align: center; color: #3a2a1a; }
+.cert.g { aspect-ratio: 4/3; background: linear-gradient(#fffdf6, #f7ecd2); }
+.cert.b { aspect-ratio: 7/5; background: linear-gradient(135deg, #fffef8, #f3e2a8); }
+.cert.q { aspect-ratio: 3/4; background: url(/cert-qaeda.jpg) center/100% 100% no-repeat; }
+.cin { position: relative; z-index: 2; }
+.fr { position: absolute; z-index: 1; border: .35cqw solid #d4a838; }
+.cert.g .fr { inset: 5%; } .cert.b .fr { inset: 7%; }
+.cert.g::before, .cert.g::after { content: ''; position: absolute; width: 40%; height: 40%; background: linear-gradient(225deg, #a50f1d 0 28%, #e0b94a 28% 33%, #6e0912 33% 42%, #e0b94a 42% 44%, transparent 44%); }
+.cert.g::before { top: 0; right: 0; } .cert.g::after { bottom: 0; left: 0; transform: rotate(180deg); }
+.cert.g .cin { padding: 9cqw 16cqw 0; color: #6b0f1a; }
+.cert.g .ct { font-size: 7.5cqw; font-weight: 800; letter-spacing: .3cqw; }
+.cert.g .cn { font-size: 7cqw; font-weight: 800; margin: 2cqw 0; }
+.medal { position: absolute; left: 11cqw; top: 9cqw; width: 9cqw; height: 9cqw; border-radius: 50%; background: radial-gradient(#222 55%, #d4a838 56% 70%, #8a6a10 71%); color: #fff; font-size: 1.5cqw; display: flex; align-items: center; justify-content: center; z-index: 2; }
+.cert.b::before, .cert.b::after { content: ''; position: absolute; width: 34%; height: 48%; background: repeating-radial-gradient(circle at 100% 0, #e6d49a 0 2%, #79c2ae 2% 5%, #caa73a 5% 5.6%, #e9e0b6 5.6% 8%); border-bottom-left-radius: 100%; }
+.cert.b::before { top: 0; right: 0; } .cert.b::after { bottom: 0; left: 0; transform: rotate(180deg); }
+.cert.b .cin { padding: 9cqw 16cqw 0; color: #33211a; }
+.cert.b .ct { font: 700 8.5cqw Georgia, serif; }
+.cert.b .cn { font: italic 700 7.5cqw 'Brush Script MT', 'Segoe Script', cursive; margin: 1.5cqw 0; border-bottom: .2cqw solid #33211a; }
+.cert.q .cin { padding: 9cqw 14cqw 0; }
+.cert.q .ct { font-size: 9cqw; font-weight: 800; color: #b8860b; }
+.cert.q .cn { font-size: 7cqw; font-weight: 800; color: #0f6b45; margin: 2cqw 0; }
+.cs { font-size: 3cqw; } .cs.small { font-size: 2.4cqw; margin-top: 1.5cqw; }
+.cert.q .cs { font-size: 3.6cqw; } .cert.q .cs.small { font-size: 3cqw; }
+.cp { font-size: 2.5cqw; line-height: 1.6; } .cert.q .cp { font-size: 3cqw; }
+.sg { position: absolute; bottom: 9cqw; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 20cqw; z-index: 2; font-size: 2.4cqw; }
+.sg span { border-top: .25cqw solid #333; padding: .6cqw 5cqw; }
+.seal { position: absolute; bottom: 6cqw; left: 50%; transform: translateX(-50%); width: 10cqw; height: 10cqw; border-radius: 50%; background: radial-gradient(#f6e08b, #b98a1c); z-index: 2; }
+.seal.star { color: #fff; font-size: 6cqw; display: flex; align-items: center; justify-content: center; left: auto; right: 12cqw; transform: none; background: #b98a1c; }
+@media print {
+  .no-print { display: none !important; }
+  body * { visibility: hidden; }
+  .overlay, .overlay * { visibility: visible; }
+  .overlay { position: absolute; inset: 0; background: #fff; display: block; padding: 0; }
+  .certbox.L { width: 270mm; } .certbox.P { width: 150mm; }
+}
+.clsh { cursor: pointer; margin: 0; }
+.note { color: #555; font-style: italic; }
+.nowrow { background: #fff6cf; }
+.loginbg { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 12px;
+  background: url(/bg-madrasa.jpg) center/cover, linear-gradient(#0b3d2b, #1d7a52 65%, #e8c872); }
+.scene { position: absolute; bottom: 0; left: 0; width: 100%; height: 55%; }
+.welcome { position: relative; z-index: 2; text-align: center; color: #fff; text-shadow: 0 2px 6px #0008; }
+.welcome h1 { margin: 6px 0; } .welcome p { margin: 0 0 8px; font-size: 18px; } .bis { font-size: 30px; font-family: 'Traditional Arabic', 'Amiri', serif; }
+.loginbg .login { position: relative; z-index: 2; width: 320px; margin: 10px; background: #fffffff2; }
